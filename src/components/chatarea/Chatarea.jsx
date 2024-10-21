@@ -4,8 +4,33 @@ import { IconButton } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import MessageOthers from './MessageOthers';
 import MessageSelf from './MessageSelf';
+import { useState } from 'react';
 
-const Chatarea = ({ props }) => {
+const Chatarea = () => {
+    const [conversations, setConversations] = useState([
+        {
+            id: 1,
+            name: "Demo User-1",
+            lastMessage: "Hello! This is last message-1",
+            timeStamp: "today",
+            unread: true
+        },
+        {
+            id: 2,
+            name: "Demo User-2",
+            lastMessage: "Hello! This is last message-2",
+            timeStamp: "today",
+            unread: true
+        },
+        {
+            id: 3,
+            name: "Demo User-3",
+            lastMessage: "Hello! This is last message-3",
+            timeStamp: "today",
+            unread: true
+        }
+    ])
+    const props = conversations[0];
     return (
         <div className='chatarea-container'>
             <div className="header-container">
