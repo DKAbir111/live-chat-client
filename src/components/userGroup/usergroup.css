@@ -61,9 +61,15 @@
     margin: 10px;
     display: flex;
     gap: 10px;
+    transition-duration: 0.5s;
 
 }
 
+.user-container:hover {
+    background-color: #e8e9ed;
+    cursor: pointer;
+    transform: scale(1.01);
+}
 
 .icon-user {
     font-size: 2rem;

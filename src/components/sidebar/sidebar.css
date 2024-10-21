@@ -43,6 +43,12 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
+.conversation-container:hover {
+    background-color: #e8e9ed;
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
 .conversation-container {
     display: grid;
     grid-template-columns: 50px auto auto;
@@ -53,6 +59,7 @@
     /* background-color: #f3f4f8; */
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    transition-duration: .5s;
 }
 
 .con-icon {

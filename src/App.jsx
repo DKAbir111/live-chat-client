@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 function App() {
     const lightTheme = useSelector((state) => state.themeKey);
     return (
-        <div className={"App" + (lightTheme ? "" : "-dark")}>
+        <div className="App">
             {/* <MainContainer /> */}
             {/* <Login /> */}
             <Routes>

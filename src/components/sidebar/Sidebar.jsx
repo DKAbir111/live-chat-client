@@ -6,8 +6,13 @@ import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import NightlightIcon from '@mui/icons-material/Nightlight';
+import LightModeIcon from "@mui/icons-material/LightMode";
 import SearchIcon from '@mui/icons-material/Search';
+import { toggleTheme } from "../../Features/themeSlice";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const Sidebar = () => {
     const [conversations, setConversations] = useState([
@@ -33,28 +38,48 @@ const Sidebar = () => {
             unread: true
         }
     ])
-
+    const nav = useNavigate();
+    const dispatch = useDispatch();
+    const lightTheme = useSelector((state) => state.themeKey);
     return (
         <div className='sidebar-container'>
-            <header className='header'>
+            <header className={"header" + (lightTheme ? "" : " dark")}>
                 <div>
-                    <IconButton>
-                        <AccountCircleIcon />
+                    <IconButton onClick={() => {
+                        nav("/app/welcome");
+                    }}>
+                        <AccountCircleIcon className={"icon" + (lightTheme ? "" : " dark")} />
                     </IconButton>
                 </div>
                 <div>
-                    <IconButton>
-                        <PersonAddAlt1Icon />
+                    <IconButton onClick={() => {
+                        nav("users");
+                    }}>
+                        <PersonAddAlt1Icon className={"icon" + (lightTheme ? "" : " dark")} />
                     </IconButton>
-                    <IconButton>
-                        <GroupAddIcon />
+                    <IconButton onClick={() => {
+                        nav("groups");
+                    }}>
+                        <GroupAddIcon className={"icon" + (lightTheme ? "" : " dark")} />
                     </IconButton>
-                    <IconButton>
-                        <AddCircleIcon />
+
+                    <IconButton onClick={() => {
+                        nav("create-groups");
+                    }}>
+                        <AddCircleIcon className={"icon" + (lightTheme ? "" : " dark")} />
                     </IconButton>
-                    <IconButton>
-                        <NightlightIcon />
+                    <IconButton
+                        onClick={() => {
+                            dispatch(toggleTheme());
+                        }}
+                    >
+                        {lightTheme ? (
+                            <NightlightIcon className="icon" />
+                        ) : (
+                            <LightModeIcon className="icon dark" />
+                        )}
                     </IconButton>
+
                 </div>
 
             </header>
@@ -78,4 +103,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar
+export default Sidebar;
