@@ -4,18 +4,18 @@
 
 .App {
   background-color: #dddedd;
-  height: 100vh;
+  /* background-color: #1c2429; */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.dark {
-  background-color: #2d3941 !important;
-  color: lightgray !important;
-}
-
-.icon {
-  width: 1.25em !important;
-  height: 1.25em !important;
+.App-dark {
+  /* background-color: #dddedd; */
+  background-color: #1c2429;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
